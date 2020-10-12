@@ -1,11 +1,16 @@
-div {
-    display: block;
+div.vh-margin {
+    margin: 10px;
 }
 
-.container {
-    width: 85%;
-    margin: 15px Auto;
+div.v-margin {
+    margin: 10px 0;
 }
+
+div.h-margin {
+    margin: 0 10px;
+}
+
+/* BUTTONS */
 
 .btn-primary {
     background-color: lightseagreen;
@@ -17,6 +22,7 @@ div {
     font-size: 16;
     border-radius: .5em;
     box-shadow: 0 4px 3px 0 rgba(0, 0, 0, .1);
+    outline: none;
 }
 
 .btn-primary:hover {
@@ -24,8 +30,28 @@ div {
     background-color: white;
     border: 2px solid lightseagreen;
     cursor: pointer;
+    outline: none;
+}
+
+/* Form Elements */
+
+input {
+    border: 2px solid lightseagreen;
+    border-radius: 3px;
+    height: 2.8em;
+    margin: 0px 10px 0px 0px;
+    padding: 5px 10px;
+}
+
+input:focus {
+    outline: none;
+    background-color: rgba(32,178,170, 0.1)
 }
 
 table {
     border-collapse: collapse;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(32,178,170, 0.1);
 }

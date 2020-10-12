@@ -1,10 +1,9 @@
 <template>
-<div class="header">
-    <ul class="navbar">
-        <nuxt-link :to="{name: 'people'}" tag="li" class="navitem">People</nuxt-link>
-        <li class="navitem">Transactions</li>
-    </ul>
-</div>
+<ul class="navbar">
+    <nuxt-link :to="{name: 'index'}" tag="li" class="navitem">Home</nuxt-link>
+    <nuxt-link :to="{name: 'people'}" tag="li" class="navitem">People</nuxt-link>
+    <li class="navitem">Transactions</li>
+</ul>
 </template>
 
 <script>
@@ -14,22 +13,11 @@ export default {
 </script>
 
 <style scoped>
-.header {
+.navbar{
     width: 100%;
     height: 60px;
     margin: 0;
-    padding: 0;
     background-color: rgba(32, 178, 170, 1);
-}
-
-.header:hover {
-    cursor: pointer;
-}
-
-ul.navbar {
-    margin: 0;
-    padding: 0;
-    height: 100%;
     list-style-type: none;
     align-content: center;
     justify-content: flex-start;
@@ -45,6 +33,7 @@ ul.navbar {
 }
 
 .navitem:hover {
+    cursor: pointer;
     background-color: rgb(52, 198, 190)
 }
 </style>

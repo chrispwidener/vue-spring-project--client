@@ -1,18 +1,22 @@
 <template>
-<table class="people-list">
-    <thead>
-        <th>First Name</th>
-        <th>Last name</th>
-        <th>Options</th>
-    </thead>
-    <tbody>
-        <tr v-for="(person, index) in people" :key="index">
-            <td>{{ person.firstName }}</td>
-            <td>{{ person.lastName }}</td>
-            <td colspan='2'>Edit Delete</td>
-        </tr>
-    </tbody>
-</table>
+<div>
+    <table class="people-list">
+        <thead>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last name</th>
+            <th>Options</th>
+        </thead>
+        <tbody>
+            <tr v-for="(person, index) in people" :key="index">
+                <td>{{ index + 1 }}</td>
+                <td>{{ person.firstName }}</td>
+                <td>{{ person.lastName }}</td>
+                <td colspan='2'>Edit Delete</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 </template>
 
 <script>
@@ -25,9 +29,7 @@ export default {
 
 <style scoped>
 table.people-list {
-    width: 100%;
     border: 1px solid lightseagreen;
-    margin: 20px auto;
 }
 
 thead {
@@ -37,7 +39,7 @@ thead {
 }
 
 th {
-    padding: 10px;
+    padding: 10px 30px;
 }
 
 td {
