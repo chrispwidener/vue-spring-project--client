@@ -1,0 +1,31 @@
+div {
+    display: block;
+}
+
+.container {
+    width: 85%;
+    margin: 15px Auto;
+}
+
+.btn-primary {
+    background-color: lightseagreen;
+    border: 2px solid lightseagreen;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16;
+    border-radius: .5em;
+    box-shadow: 0 4px 3px 0 rgba(0, 0, 0, .1);
+}
+
+.btn-primary:hover {
+    color: lightseagreen;
+    background-color: white;
+    border: 2px solid lightseagreen;
+    cursor: pointer;
+}
+
+table {
+    border-collapse: collapse;
+}
