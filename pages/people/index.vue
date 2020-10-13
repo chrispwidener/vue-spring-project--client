@@ -13,13 +13,17 @@
     </div>
     <div class="v-margin">
         <template v-if="!loading">
-            <input v-model="filterText" type="text" name="searchQuery" placeholder="Enter Search" />
-            <button @click="filtered=!filtered" class="btn-primary">{{ filtered ? "Cancel Filter" : "Apply Filter" }}</button>
+            <transition mode="out-in" name="fade-in">
+                <input v-model="filterText" type="text" name="searchQuery" placeholder="Enter Search" />
+            </transition>
+            <transition mode="out-in" name="fade-in">
+                <button @click="filtered=!filtered" class="btn-primary">{{ filtered ? "Cancel Filter" : "Apply Filter" }}</button>
+            </transition>
         </template>
     </div>
     <div class="v-margin">
         <transition mode="out-in" name="fade-in">
-            <PeopleList class="people-list" v-if="!loading" :people="filteredPeople"></PeopleList>
+                <PeopleList class="people-list" v-if="!loading" :people="filteredPeople"></PeopleList>
         </transition>
     </div>
     <div>
@@ -51,10 +55,9 @@ export default {
                 return this.people;
             } else {
                 const filterText = this.filterText.toLowerCase();
-                return this.people.filter( p => {
-                    const fn = p.firstName.toLowerCase();
-                    const ln = p.lastName.toLowerCase();
-                    return fn.includes(filterText) || ln.includes(filterText);
+                return this.people.filter(p => {
+                    const full = (p.firstName + " " + p.lastName).toLowerCase();
+                    return full.includes(filterText);
                 });
             }
         }
@@ -83,7 +86,7 @@ export default {
 }
 
 .fade-in-enter-active {
-    transition: 1s ease-in;
+    transition: .5s ease-in;
 }
 
 .fade-in-enter {

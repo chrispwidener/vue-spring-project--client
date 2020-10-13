@@ -1,5 +1,5 @@
 <template>
-    <div class="bin">
+    <div class="vh-margin">
         <form name='person' action ='' method="post">
             <div class="form-group">
                 <label for="first-name">First Name:</label>
