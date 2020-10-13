@@ -26,11 +26,11 @@ export default {
     },
     methods: {
         createUser() {
-            this.$axios.$post('/api/people', {
+            this.$axios.$post('/api/users', {
                 firstName: this.firstName,
                 lastName: this.lastName
             });
-            this.$router.push("/people")
+            this.$router.push("/users")
         }
     }
 }

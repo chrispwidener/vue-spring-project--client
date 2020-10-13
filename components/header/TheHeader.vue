@@ -1,7 +1,7 @@
 <template>
 <ul class="navbar">
     <nuxt-link :to="{name: 'index'}" tag="li" class="navitem">Home</nuxt-link>
-    <nuxt-link :to="{name: 'people'}" tag="li" class="navitem">People</nuxt-link>
+    <nuxt-link :to="{name: 'users'}" tag="li" class="navitem">Users</nuxt-link>
     <li class="navitem">Transactions</li>
 </ul>
 </template>

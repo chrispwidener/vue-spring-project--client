@@ -8,10 +8,10 @@
             <th>Options</th>
         </thead>
         <tbody>
-            <tr v-for="(person, index) in people" :key="index">
+            <tr v-for="(user, index) in users" :key="index">
                 <td>{{ index + 1 }}</td>
-                <td>{{ person.firstName }}</td>
-                <td>{{ person.lastName }}</td>
+                <td>{{ user.firstName }}</td>
+                <td>{{ user.lastName }}</td>
                 <td colspan='2'>Edit Delete</td>
             </tr>
         </tbody>
@@ -22,7 +22,7 @@
 <script>
 export default {
     props: [
-        'people'
+        'users'
     ]
 }
 </script>

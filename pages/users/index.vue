@@ -23,17 +23,17 @@
     </div>
     <div class="v-margin">
         <transition mode="out-in" name="fade-in">
-                <PeopleList class="people-list" v-if="!loading" :people="filteredPeople"></PeopleList>
+                <UserList class="user-list" v-if="!loading" :users="filteredUsers"></UserList>
         </transition>
     </div>
     <div>
-        <nuxt-link :to="{name: 'people-add'}" tag="button" class="btn-primary">Add Person</nuxt-link>
+        <nuxt-link :to="{name: 'users-add'}" tag="button" class="btn-primary">Add User</nuxt-link>
     </div>
 </div>
 </template>
 
 <script>
-import PeopleList from '~/components/people/PeopleList';
+import UserList from '~/components/users/UserList';
 import Loading from 'vue-loading-overlay';
 export default {
     data() {
@@ -41,39 +41,40 @@ export default {
             loading: true,
             filtered: false,
             filterText: "",
-            people: [],
+            users: [],
             searchQuery: ""
         }
     },
     computed: {
         maxHeight: function () {
-            return this.people.length * 20 + "px";
+            return this.users.length * 20 + "px";
         },
 
-        filteredPeople: function () {
+        filteredUsers: function () {
             if (!this.filtered) {
-                return this.people;
+                return this.users;
             } else {
                 const filterText = this.filterText.toLowerCase();
-                return this.people.filter(p => {
-                    const full = (p.firstName + " " + p.lastName).toLowerCase();
+                return this.users.filter(u => {
+                    const full = (u.firstName + " " + u.lastName).toLowerCase();
                     return full.includes(filterText);
                 });
             }
         }
     },
     methods: {
-        async getPeople() {
-            const response = await this.$axios.$get('/api/people');
-            this.people = response._embedded.people;
+        async getUsers() {
+            const response = await this.$axios.$get('/api/users/?size=500');
+            console.log(response);
+            this.users= response._embedded.users;
             this.loading = false;
         },
     },
     mounted() {
-        this.getPeople();
+        this.getUsers();
     },
     components: {
-        PeopleList,
+        UserList,
         Loading
     }
 }
